@@ -1,0 +1,75 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Quizzes
+{% endblock %}
+
+{% block page_header_title %}
+   Table
+{% endblock %}
+
+{% block form_breadcrumb %}
+<li class="breadcrumb-item active" aria-current="page">
+    Quiz table
+</li>
+{% endblock %}
+
+{% block content %}
+
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix mb-20">
+        <div class="pull-left">
+            <h4 class="text-blue h4">List of quiz</h4>
+            <p>
+               
+            </p>
+        </div>
+        <div class="pull-right">
+            <a href="{% url 'quiz:add-quiz' %}" class="bg-light-blue btn text-blue weight-500"><i class="ion-plus-round"></i> Add</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Quiz name</th>
+                    <th scope="col">Created at</th>
+                    <th scope="col">Updated at</th>
+                    <!-- <th scope="col">Tag</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for sub in object_list %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{ sub.subject }}</td>
+                    <td>{{ sub.name }}</td>
+                    <td>{{ sub.created_at }}</td>
+                    <td>{{ sub.updated_at }}</td>
+                    <td class="d-flex justify-content-end"><a href="{% url 'quiz:quiz-update' sub.id %}" class="btn mr-2 btn-primary">
+                        <i class="icon-copy dw dw-edit1"></i> update</a>
+                        <form action="{% url 'quiz:quiz-delete' sub.id %}" method="post">
+                            {% csrf_token %}
+                            <!-- <input type="submit" class="btn mb-10 btn-primary " name="sub_id" value ="delete" > -->
+                           <button type="submit" class="btn btn-danger">
+                            <i class="icon-copy dw dw-cancel">
+                            </i> delete
+                            </button>
+                      </form>  
+                     </td>
+                     {% empty %}
+                    <tr><td colspan="5" class="text-center">Currently no Data Available</td></tr>
+                </tr>              
+                    {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+<!-- add sweet alert js & css in footer -->

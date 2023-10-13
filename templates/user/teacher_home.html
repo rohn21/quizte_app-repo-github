@@ -1,0 +1,403 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+Teacher Dashboard
+{% endblock %}
+
+{% block page_header %}{% endblock %}
+
+{% block content %}
+<body>
+		<!-- <div class="pre-loader">
+			<div class="pre-loader-box">
+				<div class="loader-logo">
+					<img src="vendors/images/deskapp-logo.svg" alt="" />
+				</div>
+				<div class="loader-progress" id="progress_div">
+					<div class="bar" id="bar1"></div>
+				</div>
+				<div class="percent" id="percent1">0%</div>
+				<div class="loading-text">Loading...</div>
+			</div>
+		</div> -->	
+
+		<!-- <div class="main-container">
+			<div class="xs-pd-20-10 pd-ltr-20"> -->
+				<div class="title pb-20">
+					<h2 class="h3 mb-0">Quiz Overview</h2>
+				</div>
+				<div class="row pb-10">
+					<div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+						<div class="card-box height-100-p widget-style3">
+							<div class="d-flex flex-wrap">
+								<div class="widget-data">
+									<div class="weight-700 font-24 text-dark">{{sub}}</div>
+									<div class="font-14 text-secondary weight-500">
+										Total Subjects
+									</div>
+								</div>
+								<div class="widget-icon">
+									<div class="icon" data-color="#00eccf">
+										<iconify-icon icon="clarity:file-group-line" height="34"></iconify-icon>
+										<!-- <i class="icon-copy bi bi-hdd-stack"></i> -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+						<div class="card-box height-100-p widget-style3">
+							<div class="d-flex flex-wrap">
+								<div class="widget-data">
+									<div class="weight-700 font-24 text-dark">{{quiz}}</div>
+									<div class="font-14 text-secondary weight-500">
+										Total Quizzes
+									</div>
+								</div>
+								<div class="widget-icon">
+									<div class="icon" data-color="#ff5b5b">
+										<!-- <span class="icon-copy ti-heart"></span> -->
+										<iconify-icon icon="streamline:interface-content-book-2-library-content-books-book-shelf-stack"></iconify-icon>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+						<div class="card-box height-100-p widget-style3">
+							<div class="d-flex flex-wrap">
+								<div class="widget-data">
+									<div class="weight-700 font-24 text-dark">{{users}}</div>
+									<div class="font-14 text-secondary weight-500">
+										Users
+									</div>
+								</div>
+								<div class="widget-icon">
+									<div class="icon">
+										<iconify-icon icon="pepicons-pencil:people" width="40" height="40"></iconify-icon>
+										<!-- <i class="icon-copy bi bi-people"></i> -->
+										
+										<!-- <i
+											class="icon-copy fa fa-stethoscope"
+											aria-hidden="true"
+										></i> -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+						<div class="card-box height-100-p widget-style3">
+							<div class="d-flex flex-wrap">
+								<div class="widget-data">
+									<div class="weight-700 font-24 text-dark">$50,000</div>
+									<div class="font-14 text-secondary weight-500">Earning</div>
+								</div>
+								<div class="widget-icon">
+									<div class="icon" data-color="#09cc06">
+										<i class="icon-copy fa fa-money" aria-hidden="true"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> -->
+				</div>
+
+				<!--<div class="row">
+					 <div class="col-lg-4 col-md-6 mb-20">
+						<div class="card-box height-100-p pd-20 min-height-200px">
+							<div class="d-flex justify-content-between pb-10">
+								<div class="h5 mb-0">Top Doctors</div>
+								<div class="dropdown">
+									<a
+										class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+										data-color="#1b3133"
+										href="#"
+										role="button"
+										data-toggle="dropdown"
+									>
+										<i class="dw dw-more"></i>
+									</a>
+									<div
+										class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+									>
+										<a class="dropdown-item" href="#"
+											><i class="dw dw-eye"></i> View</a
+										>
+										<a class="dropdown-item" href="#"
+											><i class="dw dw-edit2"></i> Edit</a
+										>
+										<a class="dropdown-item" href="#"
+											><i class="dw dw-delete-3"></i> Delete</a
+										>
+									</div>
+								</div>
+							</div>
+							<div class="user-list">
+								<ul>
+									<li class="d-flex align-items-center justify-content-between">
+										<div class="name-avatar d-flex align-items-center pr-2">
+											<div class="avatar mr-2 flex-shrink-0">
+												<img
+													src="{% static 'vendors/images/photo1' %}.jpg"
+													class="border-radius-100 box-shadow"
+													width="50"
+													height="50"
+													alt=""
+												/>
+											</div>
+											<div class="txt">
+												<span
+													class="badge badge-pill badge-sm"
+													data-bgcolor="#e7ebf5"
+													data-color="#265ed7"
+													>4.9</span
+												>
+												<div class="font-14 weight-600">Dr. Neil Wagner</div>
+												<div class="font-12 weight-500" data-color="#b2b1b6">
+													Pediatrician
+												</div>
+											</div>
+										</div>
+										<div class="cta flex-shrink-0">
+											<a href="#" class="btn btn-sm btn-outline-primary"
+												>Schedule</a
+											>
+										</div>
+									</li>
+									<li class="d-flex align-items-center justify-content-between">
+										<div class="name-avatar d-flex align-items-center pr-2">
+											<div class="avatar mr-2 flex-shrink-0">
+												<img
+													src="{% static 'vendors/images/photo2' %}.jpg"
+													class="border-radius-100 box-shadow"
+													width="50"
+													height="50"
+													alt=""
+												/>
+											</div>
+											<div class="txt">
+												<span
+													class="badge badge-pill badge-sm"
+													data-bgcolor="#e7ebf5"
+													data-color="#265ed7"
+													>4.9</span
+												>
+												<div class="font-14 weight-600">Dr. Ren Delan</div>
+												<div class="font-12 weight-500" data-color="#b2b1b6">
+													Pediatrician
+												</div>
+											</div>
+										</div>
+										<div class="cta flex-shrink-0">
+											<a href="#" class="btn btn-sm btn-outline-primary"
+												>Schedule</a
+											>
+										</div>
+									</li>
+									<li class="d-flex align-items-center justify-content-between">
+										<div class="name-avatar d-flex align-items-center pr-2">
+											<div class="avatar mr-2 flex-shrink-0">
+												<img
+													src="{% static 'vendors/images/photo3' %}.jpg"
+													class="border-radius-100 box-shadow"
+													width="50"
+													height="50"
+													alt=""
+												/>
+											</div>
+											<div class="txt">
+												<span
+													class="badge badge-pill badge-sm"
+													data-bgcolor="#e7ebf5"
+													data-color="#265ed7"
+													>4.9</span
+												>
+												<div class="font-14 weight-600">Dr. Garrett Kincy</div>
+												<div class="font-12 weight-500" data-color="#b2b1b6">
+													Pediatrician
+												</div>
+											</div>
+										</div>
+										<div class="cta flex-shrink-0">
+											<a href="#" class="btn btn-sm btn-outline-primary"
+												>Schedule</a
+											>
+										</div>
+									</li>
+									<li class="d-flex align-items-center justify-content-between">
+										<div class="name-avatar d-flex align-items-center pr-2">
+											<div class="avatar mr-2 flex-shrink-0">
+												<img
+													src="{% static 'vendors/images/photo4' %}.jpg"
+													class="border-radius-100 box-shadow"
+													width="50"
+													height="50"
+													alt=""
+												/>
+											</div>
+											<div class="txt">
+												<span
+													class="badge badge-pill badge-sm"
+													data-bgcolor="#e7ebf5"
+													data-color="#265ed7"
+													>4.9</span
+												>
+												<div class="font-14 weight-600">Dr. Callie Reed</div>
+												<div class="font-12 weight-500" data-color="#b2b1b6">
+													Pediatrician
+												</div>
+											</div>
+										</div>
+										<div class="cta flex-shrink-0">
+											<a href="#" class="btn btn-sm btn-outline-primary"
+												>Schedule</a
+											>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div> 
+					<div class="col-lg-4 col-md-6 mb-20">
+						<div class="card-box height-100-p pd-20 min-height-200px">
+							<div class="d-flex justify-content-between">
+								<div class="h5 mb-0">Quiz Interest</div>
+								
+							</div>
+
+							<div id="diseases-chart"></div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 mb-20">
+						<div class="card-box height-100-p pd-20 min-height-200px">
+							<div class="max-width-300 mx-auto">
+								<img src="{% static 'vendors/images/upgrade.svg' %}" alt="" />
+							</div>
+							<div class="text-center">
+								<div class="h5 mb-1">Upgrade to Pro</div>
+								<div
+									class="font-14 weight-500 max-width-200 mx-auto pb-20"
+									data-color="#a6a6a7"
+								>
+									You can enjoy all our features by upgrading to pro.
+								</div>
+								<a href="#" class="btn btn-primary btn-lg">Upgrade</a>
+							</div>
+						</div>
+					</div>
+				</div>-->
+
+				<div class="card-box pb-10">
+					<div class="h5 pd-20 mb-0">Recent Users</div>
+					<table class="data-table table nowrap">
+						<thead>
+							<tr>
+								<th class="table-plus">Name</th>
+								<th>School name</th>
+								<th>Attended Quiz</th>
+								<th>Highest Score</th>
+								<th>Date</th>
+								<th class="datatable-nosort">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for nm in quizzes %}
+							<tr>
+								<td class="table-plus">
+									<div class="name-avatar d-flex align-items-center">
+										<div class="avatar mr-2 flex-shrink-0">
+											<img	src="{% static 'vendors/images/photo4' %}.jpg" class="border-radius-100 shadow"	width="40"	height="40"	alt="" >
+										</div>
+										<div class="txt">
+											<div class="weight-600">{{nm.user.username}}</div>
+										</div>
+									</div>
+								</td>
+								
+								<td>{{nm.school_name}}</td>
+									
+										<td>
+											{{ nm.unique_quiz_count }}
+										</td>
+								<td>
+									<span	class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">{{ nm.highest_score }}</span>
+								</td>
+								<td>{{ nm.quiz_date }}</td>
+								<td>
+									<div class="table-actions">
+										<a href="#" data-color="#265ed7"
+											><i class="icon-copy dw dw-edit2"></i
+										></a>
+										<a href="#" data-color="#e95959"
+											><i class="icon-copy dw dw-delete-3"></i
+										></a>
+									</div>
+								</td>
+							</tr>
+							{% endfor %}
+							
+							
+							
+							
+							
+							
+						</tbody>
+					</table>
+				</div>
+
+				<div class="title pb-20 pt-20">
+					<h2 class="h3 mb-0">Quick Start</h2>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 mb-20">
+						<a href="#" class="card-box d-block mx-auto pd-20 text-secondary">
+							<div class="img pb-30">
+								<img src="{% static 'vendors/images/quiz_fun.jpg' %}" alt="" />
+							</div>
+							<div class="content">
+								<h3 class="h4">Quizzes are fun</h3>
+								<p class="max-width-300">
+									Simple as that – they are fun. We all know that if learning is fun, we learn better.
+								</p>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 mb-20">
+						<a href="#" class="card-box d-block mx-auto pd-20 text-secondary">
+							<div class="img pb-30">
+								<img src="{% static 'vendors/images/assessment.jpg' %}" alt="" />
+							</div>
+							<div class="content">
+								<h3 class="h4">Quick assessments</h3>
+								<p class="max-width-300">
+									A quiz at the end of a lesson or a unit of work is an entertaining way to find out how much pupils have learned. It can also inform any further follow up needed.
+								</p>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 mb-20">
+						<a href="#" class="card-box d-block mx-auto pd-20 text-secondary">
+							<div class="img pb-30">
+								<img src="{% static 'vendors/images/support.jpg' %}" alt="" />
+							</div>
+							<div class="content">
+								<h3 class="h4">Help tracking</h3>
+								<p class="max-width-300">
+									Keeping a record of pupils’ scores and responses provides evidence the fact that the teacher is regularly assessing and feeding back to students. This can also can help a teacher monitor and track progress.
+								</p>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="footer-wrap pd-20 mb-20 card-box">
+					QuizApp developed By
+					<a href="https://github.com/RohanChauhan21" target="_blank">Rohan Chauhan</a>
+				</div>
+			</div>
+		</div>
+
+{% endblock %}

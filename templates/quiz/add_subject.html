@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Add subject form
+{% endblock %}
+
+{% block page_header_title %}
+    Forms
+{% endblock %}
+
+{% block form_breadcrumb %}
+
+<li class="breadcrumb-item active" aria-current="page">
+   Add subject
+</li>
+{% endblock %}
+
+{% block content %}
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">Quiz form</h4>
+                        <p class="mb-30">Add quiz subject</p>
+                    </div>
+                    <div class="pull-right">
+                        <!-- <a href="#basic-form1" class="btn btn-primary btn-sm scroll-click collapsed" rel="content-y" data-toggle="collapse" role="button" aria-expanded="false"><i class="fa fa-code"></i> Source Code</a> -->
+                    </div>
+                </div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Name</label>
+                        <div class="col-sm-12 col-md-10">
+                        {% render_field form.name class='form-control' placeholder="enter subject name" %}
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-block btn-primary">
+                    <!-- <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Select</label>
+                        <div class="col-sm-12 col-md-10">
+                            <select class="custom-select col-12">
+                                <option selected="">Choose...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div> -->
+                </form>
+            </div>
+
+{% endblock %}
+<!-- add sweet alert js & css in footer -->

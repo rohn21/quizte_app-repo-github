@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Add quiz form
+{% endblock %}
+
+{% block page_header_title %}
+    Forms
+{% endblock %}
+
+{% block form_breadcrumb %}
+
+<li class="breadcrumb-item active" aria-current="page">
+    Add quiz
+</li>
+{% endblock %}
+
+{% block content %}
+
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">Quiz form</h4>
+                        <p class="mb-30">Add quiz</p>
+                    </div>
+                    <div class="pull-right">
+                    </div>
+                </div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Subject</label>
+                        <div class="col-sm-12 col-md-10">
+                        {% render_field form.subject class='form-control' placeholder="" %}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Name</label>
+                        <div class="col-sm-12 col-md-10">
+                        {% render_field form.name class='form-control' placeholder="enter quiz name" %}
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-block btn-primary">
+                </form>
+            </div>
+{% endblock %}
+<!-- add sweet alert js & css in footer -->

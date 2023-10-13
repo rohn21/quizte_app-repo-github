@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Create quiz form
+{% endblock %}
+
+{% block page_header_title %}
+    Forms
+{% endblock %}
+
+{% block form_breadcrumb %}
+<li class="breadcrumb-item active" aria-current="page">
+    Create quiz
+</li>
+{% endblock %}
+
+{% block content %}
+
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">Create Quiz</h4>
+                        <p class="mb-30">Select quiz and add question with it's correct options</p>
+                    </div>
+                    <div class="pull-right">
+                    </div>
+                </div>
+
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+
+            {{ form.as_p }}
+        </div>
+
+        <table class="table">
+            {{ answer_set.management_form }}
+
+            {% for form in answer_set.forms %}
+                {% if forloop.first %}
+                    <thead>
+                    <tr>
+                        {% for field in form.visible_fields %}
+                            <th>{{ field.label|capfirst }}</th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                {% endif %}
+                <tr class="{% cycle 'row1' 'row2' %} formset_row">
+                    {% for field in form.visible_fields %}
+                        <td>
+                            {# Include the hidden fields in the form #}
+                            {% if forloop.first %}
+                                {% for hidden in form.hidden_fields %}
+                                    {{ hidden }}
+                                {% endfor %}
+                            {% endif %}
+                            {{ field.errors.as_ul }}
+                            {{ field }}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Submit" class="btn btn-block btn-primary">
+    </form>
+
+
+{% endblock %}

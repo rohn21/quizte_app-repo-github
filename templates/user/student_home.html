@@ -1,0 +1,161 @@
+{% extends 'attend_quiz/base.html'%}
+{% load static %}
+
+{% block title %}
+Student Dashboard
+{% endblock %}
+
+{% block page_header %}{% endblock %}
+
+{% block content %}
+<body>
+		<!-- <div class="pre-loader">
+			<div class="pre-loader-box">
+				<div class="loader-logo">
+					<img src="vendors/images/deskapp-logo.svg" alt="" />
+				</div>
+				<div class="loader-progress" id="progress_div">
+					<div class="bar" id="bar1"></div>
+				</div>
+				<div class="percent" id="percent1">0%</div>
+				<div class="loading-text">Loading...</div>
+			</div>
+		</div> -->	
+
+		<!-- <div class="main-container">
+			<div class="xs-pd-20-10 pd-ltr-20"> -->
+				<div class="title pb-20">
+					<h2 class="h3 mb-0">Quiz Overview</h2>
+				</div>
+
+				<div class="gallery-wrap">
+					<ul class="row">
+						<li class="col-lg-4 col-md-6 col-sm-12">
+							<div class="da-card box-shadow">
+								<div class="da-card-photo">
+									<img src="{% static 'vendors/images/product-img1.jpg' %}" alt="">  
+									<div class="da-overlay">
+										<div class="da-social">
+											<h5 class="mb-10 color-white pd-20">
+												Attend Quiz
+											</h5>
+											<ul class="clearfix">
+												<!-- <li>
+													<a href="{% static 'vendors/images/product-img1.jpg' %}" data-fancybox="images"><i class="fa fa-picture-o"></i></a>
+												</li> -->
+												<li>
+													<a href="{% url 'quiz:quiz-list' %}"><i class="fa fa-link"></i></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						
+					</ul>
+				</div>
+			
+
+				<!-- <div class="card-box pb-10">
+					<div class="h5 pd-20 mb-0">Recent Taken quizzes</div>
+					<table class="data-table table nowrap">
+						<thead>
+							<tr>
+								<th class="table-plus">Subject Name</th>
+								<th>Quiz Name</th>
+								<th>Score</th>
+								<th>Total Attempts</th>
+								
+								<th>Attempt Date</th>
+								<th class="datatable-nosort">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for nm in taken_quizzes %}
+							<tr>
+								<td class="table-plus">
+									<div class="name-avatar d-flex align-items-center">
+										<div class="txt">
+											<div class="weight-600">{{nm.quiz.subject.name}}</div>
+										</div>
+									</div>
+								</td>
+								<td>{{nm.quiz.name}}</td>
+								<td><span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7">{{nm.score}}</span></td>
+								{% for qz in attempts%}
+								<td>{{qz.unique_quiz}}</td>
+								{% endfor %}
+								<td>
+									{{nm.created_at}}
+								</td>
+								<td>
+									<div class="table-actions">
+										<a href="#" data-color="#265ed7"
+											><i class="icon-copy dw dw-edit2"></i
+										></a>
+										<a href="#" data-color="#e95959"
+											><i class="icon-copy dw dw-delete-3"></i
+										></a>
+									</div>
+								</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div> -->
+
+				<div class="title pb-20 pt-20">
+					<h2 class="h3 mb-0">Quick Start</h2>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 mb-20">
+						<a href="#" class="card-box d-block mx-auto pd-20 text-secondary">
+							<div class="img pb-30">
+								<img src="{% static 'vendors/images/quiz_fun.jpg' %}" alt="" />
+							</div>
+							<div class="content">
+								<h3 class="h4">Quizzes are fun</h3>
+								<p class="max-width-300">
+									Simple as that – they are fun. We all know that if learning is fun, we learn better.
+								</p>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 mb-20">
+						<a href="#" class="card-box d-block mx-auto pd-20 text-secondary">
+							<div class="img pb-30">
+								<img src="{% static 'vendors/images/assessment.jpg' %}" alt="" />
+							</div>
+							<div class="content">
+								<h3 class="h4">Quick assessments</h3>
+								<p class="max-width-300">
+									A quiz at the end of a lesson or a unit of work is an entertaining way to find out how much pupils have learned. It can also inform any further follow up needed.
+								</p>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 mb-20">
+						<a href="#" class="card-box d-block mx-auto pd-20 text-secondary">
+							<div class="img pb-30">
+								<img src="{% static 'vendors/images/support.jpg' %}" alt="" />
+							</div>
+							<div class="content">
+								<h3 class="h4">Help tracking</h3>
+								<p class="max-width-300">
+									Keeping a record of pupils’ scores and responses provides evidence the fact that the teacher is regularly assessing and feeding back to students. This can also can help a teacher monitor and track progress.
+								</p>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="footer-wrap pd-20 mb-20 card-box">
+					QuizApp developed By
+					<a href="https://github.com/RohanChauhan21" target="_blank">Rohan Chauhan</a>
+				</div>
+			</div>
+		</div>
+
+{% endblock %}

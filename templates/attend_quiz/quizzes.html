@@ -1,0 +1,47 @@
+{% extends 'attend_quiz/base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Attend Quiz
+{% endblock %}
+
+{% block page_header_title %}
+    Quiz
+{% endblock %}
+
+{% block form_breadcrumb %}
+    <li class="breadcrumb-item active" aria-current="page">
+        Quiz options
+    </li>
+{% endblock %}
+
+{% block content %}
+
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">List of Quiz</h4>
+                        <!-- <p class="mb-30">Add quiz</p> -->
+                    </div>
+                    <div class="pull-right">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12">
+					<div class="sitemap">
+                {% for sub in object_list %}
+                <h5>{{ sub.subject.name }}</h5>
+                <ul>
+                    
+                    <li><a href="{% url 'quiz:attend-quiz' sub.pk %}">{{ sub.name }}</a></li>
+                    
+                </ul>
+                {% endfor %}
+               
+
+					</div>
+				</div>
+            </div>
+{% endblock %}
+<!-- add sweet alert js & css in footer -->

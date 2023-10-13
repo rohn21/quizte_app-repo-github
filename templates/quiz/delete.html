@@ -1,0 +1,37 @@
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'src/plugins/sweetalert2/sweetalert2.css' %}" />
+
+<script>
+    function cdelete(id){
+        swal({
+                "title": 'Are you sure?',
+                "text": "You won't be able to revert this!",
+                "type": 'warning',
+                "showCancelButton": true,
+                "confirmButtonText": 'Yes, delete it!',
+                "cancelButtonText": 'No, cancel!',
+                "confirmButtonClass": 'btn btn-success margin-5',
+                "cancelButtonClass": 'btn btn-danger margin-5',
+                "buttonsStyling": false
+        }).then(function(result) {
+                if(result.isConfirmed){
+                    window.location.href = "quiz:sub-delete"
+                }
+                    // swal(
+                //     'Deleted!',
+                //     'Your file has been deleted.',
+                //     'success'
+                // )
+            })
+       
+    }
+   </script>
+
+   <body>
+    <a href="#" onclick="cdelete({{ sub.id }})">delete </a>
+
+<script src="{% static 'src/plugins/sweetalert2/sweetalert2.all.js' %}"></script>
+<script src="{% static 'src/plugins/sweetalert2/sweet-alert.init.js' %}"></script>
+   </body>

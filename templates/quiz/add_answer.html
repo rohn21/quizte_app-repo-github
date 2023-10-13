@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% load widget_tweaks %}
+
+{% block title %}
+Add question form
+{% endblock %}
+
+{% block page_header_title %}
+    Forms
+{% endblock %}
+
+{% block form_breadcrumb %}
+Quiz forms
+{% endblock %}
+
+{% block content %}
+
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">Question form</h4>
+                        <p class="mb-30">Add question</p>
+                    </div>
+                    <div class="pull-right">
+                    </div>
+                </div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Text</label>
+                        <div class="col-sm-12 col-md-10">
+                        {% render_field form.text class='form-control' placeholder="enter question" %}
+                        </div>  
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Quiz</label>
+                        <div class="col-sm-12 col-md-10">
+                        {% render_field form.option class='form-control' placeholder="" %}
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-block btn-primary">
+                </form>
+            </div>
+{% endblock %}
+<!-- add sweet alert js & css in footer -->

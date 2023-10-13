@@ -1,0 +1,75 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Subjects
+{% endblock %}
+
+{% block page_header_title %}
+    Forms
+{% endblock %}
+
+{% block form_breadcrumb %}
+<li class="breadcrumb-item active" aria-current="page">
+    Quiz subject table
+</li>
+{% endblock %}
+
+{% block content %}
+
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix mb-20">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Subject list</h4>
+            <p>
+               
+            </p>
+        </div>
+        <div class="pull-right">
+            <a href="{% url 'quiz:add-sub' %}" class="bg-light-blue btn text-blue weight-500"><i class="ion-plus-round"></i> Add</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Created at</th>
+                    <th scope="col">Updated at</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sub in object_list %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{ sub.name }}</td>
+                    <td>{{ sub.created_at }}</td>
+                    <td>{{ sub.updated_at }}</td>
+                    <!-- <td></td> -->
+                    <td class="d-flex justify-content-end">
+                        <a href="{% url 'quiz:sub-update' sub.id %}" class="btn mr-2 btn-primary"><i class="icon-copy dw dw-edit1"></i> update</a>
+                        <form action="{% url 'quiz:sub-delete' sub.id %}" method="post">
+                            {% csrf_token %}
+                           <button type="submit" class="btn btn-danger">
+                            <i class="icon-copy dw dw-cancel">
+                            </i> delete
+                            </button>
+                      </form>  
+                     </td>
+                     {% empty %}
+                     <tr><td colspan="5" class="text-center">Currently No Data Available</td></tr>
+                </tr>              
+                    {% endfor %}
+
+                    <!-- <td>Otto</td> -->
+                    <!-- <td>@mdo</td> -->
+                    <!-- <td><span class="badge badge-primary">Primary</span></td> -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+<!-- add sweet alert js & css in footer -->

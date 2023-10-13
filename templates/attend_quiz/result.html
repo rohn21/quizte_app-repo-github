@@ -1,0 +1,77 @@
+{% extends 'attend_quiz/base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Add quiz form
+{% endblock %}
+
+{% block page_header_title %}
+    Quiz
+{% endblock %}
+
+{% block form_breadcrumb %}
+<li class="breadcrumb-item">
+    <a href="{% url 'quiz:quiz-list' %}">Quiz options</a>
+</li>
+<li class="breadcrumb-item">
+    Attend quiz
+</li>
+<li class="breadcrumb-item active" aria-current="page">
+    Result
+</li>
+{% endblock %}
+
+{% block content %}
+
+            <!-- <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    
+                    <div class="pull-right">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="">
+                        <h3>Your Scorecard</h3>
+                        <p>You scored {{ taken_quiz.score }} out of {{ max_marks }}</p>
+                        <p>correct answers : {{answers}}</p> 
+                        <p>Total Attempts: {{ attempts }}</p>
+					</div>
+				</div>
+            </div> -->
+            <div class="blog-list">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">Taken Quiz</h4>
+                        <!-- <p class="mb-30"></p> -->
+                    </div>
+                </div>
+                    <ul>
+                        <li>
+                        <div class="row no-gutters">
+                            <div class="col-lg-4 col-md-12 col-sm-12">
+                                <div class="blog-img" style="background: url(&quot;vendors/images/img5.jpg&quot;) center center no-repeat;">
+                                    <img src="{% static 'vendors/images/img5.jpg' %}" alt="" class="bg_img" style="display: none;">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-12 col-sm-12">
+                                <div class="blog-caption text-center">
+                                    <h3>Your Scorecard</h3>
+                                        <div class="dropdown-divider"></div>
+                                    <div class="blog-by">
+                                        <p>Scored {{ taken_quiz.score }} out of {{ max_marks }}</p>
+                                        <p>correct answers : {{answers}}</p> 
+                                        <p>Total Attempts: {{ attempts }}</p>
+                                        <div class="pt-10">
+                                            <a href="#" class="">Thanks for your time</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </li>
+                    </ul> 
+            </div>
+            
+
+{% endblock %}

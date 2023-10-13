@@ -1,0 +1,62 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+  {% block title %}
+  Register yourself
+  {% endblock %}
+		
+  {% block content %}
+
+
+		
+		<div
+			class="login-wrap d-flex align-items-center flex-wrap justify-content-center"
+		>
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-6 col-lg-7">
+						<img src="{% static 'vendors/images/login-page-img.png' %}" alt="" />
+					</div>
+					<div class="col-md-6 col-lg-5">
+						<div class="login-box bg-white box-shadow border-radius-10">
+							<div class="login-title">
+								<h2 class="text-center text-primary">Choose your Role</h2>
+							</div>
+							<form>
+								<div class="select-role">
+									<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<label class="btn" onmouseover="this.style.background='rgba(27,0,255,.05)';" onmouseout="this.style.background='#ffffff'">
+										  <a href="{% url 'usrs:teacher_register' %}">
+										  <input type="radio" name="options" id="user" />
+										<div class="icon">
+										  <img src="{% static 'vendors/images/briefcase.svg' %}"  class="svg" alt=""  />
+										</div>
+										<span>I'm</span>
+										Teacher
+									  </a>
+					</label>
+                    <label class="btn" onmouseover="this.style.background='rgba(27,0,255,.05)';" onmouseout="this.style.background='#ffffff'">
+						<!-- background-color: rgba(27,0,255,.05);
+						border-color: rgba(27,0,255,.5);
+						color: #1b00ff; -->
+					
+                      <a href="{% url 'usrs:student_register' %}">
+                        <input type="radio" name="options" id="admin" />
+                        <div class="icon">
+                          <img src="{% static 'vendors/images/person.svg' %}" class="svg" alt="" />
+                        </div>
+                        <span>I'm</span>
+                        Student
+                      </a>
+                    </label>
+									</div>
+								</div>
+									<h6 class="text-center" >already registered ? <a href="{% url 'usrs:login' %}" class="text-center text-primary"><span>login</span></a></h6>
+							
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
+
