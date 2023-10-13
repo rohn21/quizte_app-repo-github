@@ -107,7 +107,12 @@ Add Django SuperUser and follow the prompts.:
 
 ## Features
 
-- Light/dark mode toggle
+- Registration and login
+- Authentication
+- Permissions using decorator
+- Inlineformset_factory
+- Teacher and Student dashboard 
+- Light/dark mode toggle (navbar ,sidebar)
 
 
 
@@ -133,10 +138,6 @@ Here are some potential future updates in Quizte:
 6. **Feedback Mechanism:** Allow students to provide feedback on quizzes. This could help teachers improve their quizzes and teaching methods.
 
 7. **Notifications:** Implement a notification system to alert students when new quizzes are available or when they receive feedback on a completed quiz.
-
-## 🛠 Skills
-Python, Django, Javascript, HTML, CSS
-
 
 ## Badges
 
