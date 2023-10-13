@@ -93,6 +93,10 @@ source env/bin/activate
 ./manage.py makemigrations
 ./manage.py migrate
 ```
+Add Django SuperUser and follow the prompts.:
+```bash
+ python manage.py createsuperuser
+```
 
 - You can run the server by using command
 
