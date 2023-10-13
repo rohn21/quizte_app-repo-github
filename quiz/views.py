@@ -162,64 +162,13 @@ class QuesAnsUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse('quiz:question-list')
 
-# class AttendQuiz(FormView):
-#     template_name = "attend_quiz/attend_quiz.html"
-#     form_class = TakeQuizForm
+###___________________________ ATTENDED-QUIZ_RELATED_VIEWS ________________________###
 
-#     def get_form_kwargs(self):
-#         kwargs = super().get_form_kwargs()
-#         quiz = Quiz.objects.get(pk=self.kwargs['pk'])
-#         questions = quiz.questions.all()
-#         current_question_index = int(self.request.GET.get('question_index', 0))
-#         current_question = questions[current_question_index]
-#         kwargs['question'] = current_question
-#         return kwargs
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         quiz = Quiz.objects.get(pk=self.kwargs['pk'])
-#         questions = quiz.questions.all()
-#         current_question_index = int(self.request.GET.get('question_index', 0))
-#         current_question_number = current_question_index + 1
-#         context['current_question_index'] = current_question_number
-#         context['total_questions'] = questions.count()
-#         return context
-
-#     def form_valid(self, form):
-#         quiz = Quiz.objects.get(pk=self.kwargs['pk'])
-#         questions = quiz.questions.all()
-#         # answers = Answer.objects.filter(question)
-#         current_question_index = int(self.request.GET.get('question_index', 0))
-#         current_question = questions[current_question_index]
-#         next_question_index = current_question_index + 1
-#         # Process the user's response to the current question
-#         option = form.cleaned_data['option']
-#         print("➡ option :", option.is_correct)
-#         # answer = Answer.objects.get(pk=answer_pk)
-#         if option.is_correct :
-#             # Increment the number of correct answers
-#             correct_answers = self.request.session.get('correct_answers', 0)
-#             correct_answers += 1
-#             self.request.session['correct_answers'] = correct_answers
-#             total_marks = self.request.session.get('total_marks', 0)
-#             print("➡ total_marks :", total_marks)
-#             total_marks += current_question.marks
-#             self.request.session['total_marks'] = total_marks
-
-#         if next_question_index >= questions.count():
-#             # Quiz is finished, calculate the score and redirect to results page
-#             max_marks = questions.aggregate(Sum('marks'))['marks__sum']
-#             print("➡ max_marks :", max_marks)
-#             total_marks = self.request.session.get('total_marks', 0)
-#             print("➡ total_marks :", total_marks)
-#             score = round((total_marks / max_marks) * 100)
-#             correct_answers = self.request.session.get('correct_answers', 0)
-#             TakenQuiz.objects.create(user=self.request.user, quiz=quiz ,answer_id=option.pk, score=score)
-#             # return redirect('quiz:result')
-#             return HttpResponseRedirect(reverse('quiz:result', args=[quiz.pk]))
-#         else:
-#             # Display next question
-#             return redirect(f'{self.request.path}?question_index={next_question_index}')
+@method_decorator(student_required, name='dispatch')
+class QuizList(LoginRequiredMixin, ListView):
+    model = Quiz
+    template_name = "attend_quiz/quizzes.html"
 
 @method_decorator(student_required, name='dispatch')
 class TakeQuiz(LoginRequiredMixin, FormView):
@@ -279,12 +228,6 @@ class TakeQuiz(LoginRequiredMixin, FormView):
             # Display next question
             return redirect(f'{self.request.path}?question_index={next_question_index}')
 
-###___________________________ ATTENDED-QUIZ_RELATED_VIEWS ________________________###
-
-@method_decorator(student_required, name='dispatch')
-class QuizList(LoginRequiredMixin, ListView):
-    model = Quiz
-    template_name = "attend_quiz/quizzes.html"
         
 @method_decorator(student_required, name='dispatch')
 class QuizResultsView(LoginRequiredMixin, DetailView):
