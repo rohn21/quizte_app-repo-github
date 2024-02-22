@@ -1,3 +1,25 @@
+# Student registration
+![Screenshot (720)](https://github.com/rohn21/quizte_app-repo-github/assets/85386832/c8d5bcbb-8ca4-4c00-a255-e74e81cb09b8)
+# Teacher registration
+![Screenshot (719)](https://github.com/rohn21/quizte_app-repo-github/assets/85386832/3023bf7d-7ad0-419b-9a21-73efd311723c)
+# Role-Based Registration
+![Screenshot (718)](https://github.com/rohn21/quizte_app-repo-github/assets/85386832/71e81ca7-0aa4-4643-be54-9873d2260d21)
+# Teacher Dashboard
+![Screenshot (717)](https://github.com/rohn21/quizte_app-repo-github/assets/85386832/69723a00-a49f-4912-8ac8-9b33cac8dfa6)
+![Screenshot (716)](https://github.com/rohn21/quizte_app-repo-github/assets/85386832/68e59d14-90a8-490c-a7bd-4e61fa01f6da)
+# Login Page
+![Screenshot (714)](https://github.com/rohn21/quizte_app-repo-github/assets/85386832/504244fe-cd89-44a9-a507-fabddaebf6ed)
+# Quiz Scorecard
+![Screenshot (713)](https://github.com/rohn21/quizte_app-repo-github/assets/85386832/3dcc32b9-9ded-44db-8a9f-92b198081044)
+# Student Dashboard
+![Screenshot (709)](https://github.com/rohn21/quizte_app-repo-github/assets/85386832/f0e9b8d6-76f3-4394-9443-3f0baea36033)
+# Attend quiz
+![Screenshot (712)](https://github.com/rohn21/quizte_app-repo-github/assets/85386832/569714a6-4bc7-4e1c-a84a-af282ae1963d)
+# Quiz List
+![Screenshot (710)](https://github.com/rohn21/quizte_app-repo-github/assets/85386832/1ba3ffb4-4757-4186-92f2-37a2c9360feb)
+
+
+
 
 # Quizte - quizapp using Python-Django(CBV)
 
