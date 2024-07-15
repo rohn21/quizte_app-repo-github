@@ -1,6 +1,6 @@
 asgiref==3.7.2
 beautifulsoup4==4.12.2
-certifi==2023.7.22
+certifi==2024.7.4
 charset-normalizer==3.3.0
 crispy-bootstrap4==2022.1
 Django==4.2.6
