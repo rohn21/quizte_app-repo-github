@@ -40,24 +40,11 @@ Quizte is a web application built using Python and Django. It's designed to faci
 It provides a practical solution for online learning environments, enabling teachers to easily create quizzes and students to attend them from anywhere.
 
 ## Installation
-If you haven't, you need a working knowledge of Django and a working Django Project before you can use this Django webapp. A good place to start is [here](https://docs.djangoproject.com/en/4.2/intro/tutorial01/#creating-a-project). Make sure you refer to the django version you are using. A quick way to start a new django project is to run the following command:
+This project requires Python 3.12 or later and Django 6.1. Start with the [Django 6.1 tutorial](https://docs.djangoproject.com/en/6.1/intro/tutorial01/), then create and activate a virtual environment before installing dependencies.
 
 - Install Django:
 ```bash
- pip install django
-```
-- Install Python Pipenv:
-```bash
- pip install pipenv
-```
-
-- Go to your desired development folder and create a new django project:
-```bash
- django-admin startproject quizapp && cd quizapp
-```
-Install Django on you virtual environment:
-```bash
- pipenv install django
+ python -m pip install -r requirements.txt
 ```
 Add app_name to INSTALLED_APPS in you new Django Project:
 ```bash
@@ -65,9 +52,6 @@ Add app_name to INSTALLED_APPS in you new Django Project:
     ...,
     'usrs',
     'quiz',
-    'crispy_forms',
-    'crispy_bootstrap4',
-    'bootstrap4',
     'widget_tweaks',
     ...,
 ]
@@ -99,14 +83,15 @@ Add Django SuperUser and follow the prompts.:
 - Activate the local environment
 
 ```bash
-virtualenv env
-source env/bin/activate
+python3.12 -m venv .venv
+source .venv/bin/activate
 ```
 
 - Install the requirements
 
 ```bash
-  pip3 install -r requirements.txt
+  python -m pip install --upgrade pip
+  python -m pip install -r requirements.txt
 ```
 
 - Migrate the database
